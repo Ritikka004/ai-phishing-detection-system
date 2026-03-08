@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>AI Phishing URL Detector</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:#0f172a;
+color:#e2e8f0;
+padding:40px;
+}
+
+.container{
+background:#1e293b;
+padding:35px;
+border-radius:12px;
+width:420px;
+margin:auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+h1{
+color:#38bdf8;
+}
+
+input{
+width:90%;
+padding:12px;
+margin:12px;
+border-radius:8px;
+border:1px solid #475569;
+background:#020617;
+color:white;
+}
+
+button{
+padding:10px 16px;
+margin:6px;
+background:#3b82f6;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2563eb;
+}
+
+.safe{
+color:#22c55e;
+font-weight:bold;
+}
+
+.phishing{
+color:#ef4444;
+font-weight:bold;
+}
+
+.section{
+display:none;
+margin-top:20px;
+}
+
+#history{
+text-align:left;
+background:#020617;
+padding:10px;
+border-radius:8px;
+max-height:150px;
+overflow-y:auto;
+}
+
+#history li{
+border-bottom:1px solid #334155;
+padding:5px;
+}
+
+#loading{
+color:#38bdf8;
+font-weight:bold;
+margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔐 AI Phishing URL Detector</h1>
+
+<input id="urlInput" type="text" placeholder="Enter website URL">
+
+<br>
+
+<button onclick="checkURL()">Scan URL</button>
+
+<div id="loading" style="display:none;">
+🔎 Scanning website...
+</div>
+
+<h2 id="result"></h2>
+
+<h3 id="threatLevel"></h3>
+
+<div>
+
+<button onclick="showSection('meter')">📊 Risk Meter</button>
+
+<button onclick="showSection('history')">📜 Scan History</button>
+
+<button onclick="showSection('stats')">🌍 Global Stats</button>
+
+<button onclick="showSection('ai')">🧠 AI Explanation</button>
+
+</div>
+
+<div id="meterSection" class="section">
+<canvas id="riskChart" width="200" height="200"></canvas>
+</div>
+
+<div id="historySection" class="section">
+<h3>Scan History</h3>
+<ul id="history"></ul>
+</div>
+
+<div id="statsSection" class="section">
+<h3>🌍 Global Phishing Attacks Blocked</h3>
+<h2 id="phishCount">12453</h2>
+</div>
+
+<div id="aiSection" class="section">
+<h3>🧠 AI Threat Explanation</h3>
+<ul id="explanationList"></ul>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
