@@ -8,7 +8,7 @@ document.getElementById("loading").style.display="block";
 document.getElementById("result").innerHTML="";
 document.getElementById("threatLevel").innerHTML="";
 
-let response=await fetch("http://127.0.0.1:5000/predict",{
+let response=await fetch("https://ai-phishing-detection-system-nggh.onrender.com/predict",{
 
 method:"POST",
 
